@@ -10,6 +10,8 @@ import App from './App';
 import './logger';
 import { ErrorBoundary } from 'react-error-boundary';
 
+import { BrowserRouter as Router } from 'react-router-dom';
+
 if (window.location.host !== 'studio.polotno.com') {
   console.log(
     `%cWelcome to Polotno Studio! Thanks for your interest in the project!

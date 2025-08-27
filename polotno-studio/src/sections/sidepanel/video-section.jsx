@@ -97,7 +97,7 @@ export const VideosSection = {
   name: 'videos',
   Tab: (props) => (
     <SectionTab name="Videos" {...props}>
-      <Video />
+      <Video className="bp5-icon bp5-icon-media" />
     </SectionTab>
   ),
   // we need observer to update component automatically on any store changes

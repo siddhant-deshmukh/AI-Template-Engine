@@ -299,7 +299,7 @@ export const IconsSection = {
   name: 'icons',
   Tab: observer((props) => (
     <SectionTab name={t('sidePanel.icons')} {...props}>
-      <FaVectorSquare />
+      <FaVectorSquare className="bp5-icon bp5-icon-media" />
     </SectionTab>
   )),
   // we need observer to update component automatically on any store changes

@@ -2,22 +2,18 @@ import React from 'react';
 import { observer } from 'mobx-react-lite';
 import { Spinner } from '@blueprintjs/core';
 
-import { PolotnoContainer, SidePanelWrap, WorkspaceWrap } from 'polotno';
-import { Toolbar } from 'polotno/toolbar/toolbar';
-import { ZoomButtons } from 'polotno/toolbar/zoom-buttons';
+import { PolotnoContainer, SidePanelWrap } from 'polotno';
 import { SidePanel, DEFAULT_SECTIONS } from 'polotno/side-panel';
-import { Workspace } from 'polotno/canvas/workspace';
-import { PagesTimeline } from 'polotno/pages-timeline';
 import { setTranslations } from 'polotno/config';
 
 import { loadFile } from './file';
 
-import { QrSection } from './sections/qr-section';
-import { QuotesSection } from './sections/quotes-section';
-import { IconsSection } from './sections/icons-section';
-import { ShapesSection } from './sections/shapes-section';
-import { StableDiffusionSection } from './sections/stable-diffusion-section';
-import { MyDesignsSection } from './sections/my-designs-section';
+import { QrSection } from './sections/sidepanel/qr-section';
+import { QuotesSection } from './sections/sidepanel/quotes-section';
+import { IconsSection } from './sections/sidepanel/icons-section';
+import { ShapesSection } from './sections/sidepanel/shapes-section';
+import { StableDiffusionSection } from './sections/sidepanel/stable-diffusion-section';
+import { MyDesignsSection } from './sections/sidepanel/my-designs-section';
 
 import { useProject } from './project';
 
@@ -29,9 +25,14 @@ import ptBr from './translations/pt-br';
 import zhCh from './translations/zh-ch';
 
 import Topbar from './topbar/topbar';
+import PromptSection from './sections/sidepanel/prompt-section-panel';
+import EditorComponent from './sections/EditorSection';
 
+import PromptPage from './sections/PromptSection';
 // load default translations
 setTranslations(en);
+
+console.log(DEFAULT_SECTIONS, DEFAULT_SECTIONS.length);
 
 // replace elements section with just shapes
 DEFAULT_SECTIONS.splice(3, 1, ShapesSection);
@@ -44,6 +45,7 @@ DEFAULT_SECTIONS.unshift(MyDesignsSection);
 
 DEFAULT_SECTIONS.push(StableDiffusionSection);
 // DEFAULT_SECTIONS.push(VideosSection);
+DEFAULT_SECTIONS.unshift(PromptSection);
 
 const isStandalone = () => {
   return (
@@ -139,16 +141,13 @@ const App = observer(({ store }) => {
     >
       <Topbar store={store} />
       <div style={{ height: 'calc(100% - 50px)' }}>
-        <PolotnoContainer className="polotno-app-container">
+        <PolotnoContainer className="polotno-app-container max-w-[100vw] overflow-hidden">
           <SidePanelWrap>
             <SidePanel store={store} sections={DEFAULT_SECTIONS} />
           </SidePanelWrap>
-          <WorkspaceWrap>
-            <Toolbar store={store} />
-            <Workspace store={store} />
-            <ZoomButtons store={store} />
-            <PagesTimeline store={store} />
-          </WorkspaceWrap>
+          <div className='relative flex flex-col h-full w-full max-h-full'>
+            <EditorComponent store={store} />
+          </div>
         </PolotnoContainer>
       </div>
       {project.status === 'loading' && (

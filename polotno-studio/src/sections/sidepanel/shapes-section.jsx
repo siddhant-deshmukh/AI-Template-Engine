@@ -14,7 +14,7 @@ export const ShapesSection = {
   name: "shapes",
   Tab: observer((props) => (
     <SectionTab name={t("sidePanel.shapes")} {...props}>
-      <FaShapes />
+      <FaShapes className="bp5-icon bp5-icon-media" />
     </SectionTab>
   )),
   // we need observer to update component automatically on any store changes

@@ -163,7 +163,7 @@ export const QuotesSection = {
   name: 'quotes',
   Tab: (props) => (
     <SectionTab name="Quotes" {...props}>
-      <FdCommentQuotes />
+      <FdCommentQuotes className="bp5-icon bp5-icon-media" />
     </SectionTab>
   ),
   // we need observer to update component automatically on any store changes

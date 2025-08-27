@@ -11,12 +11,12 @@ import {
 } from '@blueprintjs/core';
 import { DocumentOpen, Trash, More } from '@blueprintjs/icons';
 
-import { CloudWarning } from '../cloud-warning';
+import { CloudWarning } from '@/cloud-warning';
 
 import { SectionTab } from 'polotno/side-panel';
 import FaFolder from '@meronex/icons/fa/FaFolder';
-import { useProject } from '../project';
-import * as api from '../api';
+import { useProject } from '@/project';
+import * as api from '@/api';
 
 const DesignCard = observer(({ design, store, onDelete }) => {
   const [loading, setLoading] = React.useState(false);
@@ -212,7 +212,7 @@ export const MyDesignsSection = {
   name: 'my-designs',
   Tab: (props) => (
     <SectionTab name="My Designs" {...props}>
-      <FaFolder />
+      <FaFolder className="bp5-icon bp5-icon-media" />
     </SectionTab>
   ),
   // we need observer to update component automatically on any store changes

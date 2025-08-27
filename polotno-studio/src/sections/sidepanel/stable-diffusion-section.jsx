@@ -9,9 +9,9 @@ import { getImageSize } from 'polotno/utils/image';
 import { t } from 'polotno/utils/l10n';
 
 import { ImagesGrid } from 'polotno/side-panel/images-grid';
-import { useCredits } from '../credits';
+import { useCredits } from '@/credits';
 import { getCrop } from 'polotno/utils/image';
-import { useProject } from '../project';
+import { useProject } from '@/project';
 import { getAPI } from 'polotno/utils/api';
 
 const GenerateTab = observer(({ store }) => {
@@ -375,7 +375,7 @@ export const StableDiffusionSection = {
   name: 'stable-diffusion',
   Tab: (props) => (
     <SectionTab name="AI Img" {...props}>
-      <Clean />
+      <Clean className="bp5-icon bp5-icon-media"/>
     </SectionTab>
   ),
   // we need observer to update component automatically on any store changes

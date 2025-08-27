@@ -30,7 +30,7 @@ export const QrSection = {
   name: 'qr',
   Tab: (props) => (
     <SectionTab name="QR code" {...props}>
-      <FaQrcode />
+      <FaQrcode className="bp5-icon bp5-icon-media" />
     </SectionTab>
   ),
   // we need observer to update component automatically on any store changes

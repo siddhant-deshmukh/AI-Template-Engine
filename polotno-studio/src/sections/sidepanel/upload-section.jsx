@@ -8,12 +8,12 @@ import {
 } from 'polotno/side-panel';
 import { getImageSize, getCrop } from 'polotno/utils/image';
 import { getVideoSize, getVideoPreview } from 'polotno/utils/video';
-import { dataURLtoBlob } from '../blob';
+import { dataURLtoBlob } from '@/blob';
 
-import { CloudWarning } from '../cloud-warning';
+import { CloudWarning } from '@/cloud-warning';
 
-import { useProject } from '../project';
-import { listAssets, uploadAsset, deleteAsset } from '../api';
+import { useProject } from '@/project';
+import { listAssets, uploadAsset, deleteAsset } from '@/api';
 
 function getType(file) {
   const { type } = file;
