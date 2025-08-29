@@ -1,5 +1,6 @@
 import { Schema, model, Document, type PopulatedDoc } from 'mongoose';
 import type { IUser } from './User';
+import { IPolotnoJSON } from '../types/polotno';
 
 
 
@@ -8,7 +9,7 @@ export interface ITemplate extends Document {
   description?: string;
   width: number;
   height: number;
-  canvasData: Record<string, any>;
+  canvasData: IPolotnoJSON;
   createdAt: Date;
   updatedAt: Date;
   createdBy?: PopulatedDoc<IUser & Document>; // Reference to User
